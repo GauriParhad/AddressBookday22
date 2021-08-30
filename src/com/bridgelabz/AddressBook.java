@@ -140,4 +140,29 @@ public class AddressBook  {
     public ArrayList<Person> list() {
         return list;
     }
+
+    public void print() {
+        Iterator<Person> it = list.iterator();
+        while (it.hasNext()) {
+            System.out.println(it.next());
+        }
+    }
+
+    public static class Sort {
+        static Comparator<Person> compareLastName = new Comparator<Person>() {
+            public int compare(Person one, Person two) {
+                return one.getLname().compareTo(two.getLname());
+            }
+        };
+
+        static Comparator<Person> compareZip = new Comparator<Person>() {
+            public int compare(Person s1, Person s2) {
+                Address address1 = s1.getAddress();
+                Address address2 = s2.getAddress();
+                int zip1 = (int) address1.getZip();
+                int zip2 = (int) address2.getZip();
+                return zip1 - zip2;
+            }
+        };
+    }
 }
