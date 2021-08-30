@@ -1,6 +1,16 @@
 package com.bridgelabz;
 import java.io.Console;
 import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
 
 public class AddressBook  {
     public static void main(String[] args) {
@@ -122,4 +132,12 @@ public class AddressBook  {
     }
     public void sortByLastname() {
         Collections.sort(list, Sort.compareLastName);
+    }
+    public void sortByZip() {
+        Collections.sort(list, Sort.compareZip);
+    }
+
+    public ArrayList<Person> list() {
+        return list;
+    }
 }
