@@ -111,6 +111,19 @@ public class AddressBook implements AddressBookInterface {
             }
         }
     }
+    public void delete() {
+        System.out.println("Enter your First name:");
+        String fname = s.next();
+
+        Iterator<Person> iterator = list.listIterator();
+        while (iterator.hasNext()) {
+            Person person = iterator.next();
+
+            if (fname.equals(person.getFname())) {
+                list.remove(person);
+            }
+        }
+    }
 
 }
-            }
+
