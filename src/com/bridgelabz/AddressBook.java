@@ -40,4 +40,36 @@ public class AddressBook implements AddressBookInterface{
         } while (status);
     }
 
+    
+    public void add() {
+        Person person = new Person();
+        Address address = new Address();
+        System.out.println("Enter the First name:");
+        String fname = s.next();
+        person.setFname(fname);
+
+        System.out.println("Enter the Last name:");
+        String lname = s.next();
+        person.setLname(lname);
+
+        System.out.println("Enter the Phone Number:");
+        Long phone = s.nextLong();
+        person.setPhonenumber(phone);
+
+        System.out.println("Enter the City:");
+        String city = s.next();
+        address.setCity(city);
+
+        System.out.println("Enter the Zip:");
+        long zip = s.nextLong();
+        address.setZip(zip);
+
+        System.out.println("Enter the State:");
+        String state = s.next();
+        address.setState(state);
+        person.setAddress(address);
+        list.add(person);
+
+    }
+
 }
