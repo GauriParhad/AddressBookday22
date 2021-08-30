@@ -125,5 +125,8 @@ public class AddressBook implements AddressBookInterface {
         }
     }
 
+    public void sortByLastname() {
+        Collections.sort(list, Sort.compareLastName);
+        
 }
 
