@@ -1,132 +1,123 @@
 package com.bridgelabz;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.Scanner;
+import java.io.Console;
+import java.util.*;
 
-public class AddressBook implements AddressBookInterface {
-    Scanner s = new Scanner(System.in);
-    ArrayList<Person> list = new ArrayList<Person>();
-
-    public void operation(ArrayList<Person> arrayRead) {
-        // list=AddressManager.listReturn();
-        list = arrayRead;
-        boolean status = true;
-        do {
-            System.out.println("Choose Operation you want to do");
-            System.out
-                    .println("1. Add\t2. Edit\t3. SortById\t4. SortByZip\t5. Show\t6. Back");
-            switch (s.nextInt()) {
-                case 1:
-                    add();
-                    break;
-                case 2:
-                    edit();
-                    break;
-                case 3:
-                    sortByLastname();
-                    break;
-                case 4:
-                    sortByZip();
-                    break;
-                case 5:
-                    print();
-                    break;
-                case 6:
-                    status = false;
-                    break;
-            }
-        } while (status);
+public class AddressBook  {
+    public static void main(String[] args) {
+        details();
+        contactNewperson();
+        editContactDetails();
+        multiplePersonDetails();
+        multipleDetailsAddressbook();
     }
 
+    public static void details() {
 
-    public void add() {
-        Person person = new Person();
-        Address address = new Address();
-        System.out.println("Enter the First name:");
-        String fname = s.next();
-        person.setFname(fname);
-
-        System.out.println("Enter the Last name:");
-        String lname = s.next();
-        person.setLname(lname);
-
-        System.out.println("Enter the Phone Number:");
-        Long phone = s.nextLong();
-        person.setPhonenumber(phone);
-
-        System.out.println("Enter the City:");
-        String city = s.next();
-        address.setCity(city);
-
-        System.out.println("Enter the Zip:");
-        long zip = s.nextLong();
-        address.setZip(zip);
-
-        System.out.println("Enter the State:");
-        String state = s.next();
-        address.setState(state);
-        person.setAddress(address);
-        list.add(person);
-
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter first and last name of the person:");
+        System.out.println("Enter the name of the Address:");
+        System.out.println("Enter the name of the State:");
+        System.out.println("Enter the name of the City:");
+        System.out.println("Enter the zip code number:");
+        System.out.println("Enter the name of the Phone number:");
+        System.out.println("Enter the name of the Email Id:");
+        String name = sc.nextline();
+        System.out.println("Name of the person:" + name);
+        String Address = sc.nextline();
+        System.out.println("Address of the person:" + Address);
+        String State = sc.nextline();
+        System.out.println("Name of the person:" + State);
+        String City = sc.nextline();
+        System.out.println("Name of the person:" + City);
+        String zip = sc.nextline();
+        System.out.println("Enter the zip code:" + zip);
+        String ph_no = sc.nextline();
+        System.out.println("Name of the person:" + ph_no);
+        String Email_Id = sc.nextline();
+        System.out.println("Name of the person:" + Email_Id);
     }
+    public static void contactNewperson() {
+        Scanner sc = new Scanner(System.in);
+        Console c = System.console();
+        System.out.println("Enter the name");
+        String n = c.readLine();
+        System.out.println("Welcome" + n);
+        System.out.println("Enter your Address:");
+        String Address = c.readLine();
+        System.out.println("Your Address is :" + Address);
+        System.out.println("Enter your State:");
+        String State = c.readLine();
+        System.out.println("Your State is :" + State);
+        System.out.println("Enter your City:");
+        String City = c.readLine();
+        System.out.println("Your City is :" + City);
+        System.out.println("Enetr zip code");
+        String zip = c.readLine();
+        System.out.println("Enter your zip code:" + zip);
+        System.out.println("Enter your ph_no:");
+        String ph_no = c.readLine();
+        System.out.println("Your Contact number is :" + ph_no);
+        System.out.println("Enter your Email_Id:");
+        String Email_Id = c.readLine();
+        System.out.println("Your Email_id is :" + Email_Id);
+    }
+    public static void editContactDetails(){
+        System.out.println("After Editing the existed contact the list of details are given below");
+        contactNewperson();
+    }
+    public static void clearConsole(){
+        final String name_person =System.getProperty("name_person.name");
 
-    public void edit() {
-        System.out.println("Enter your First name:");
-        String fname = s.next();
-
-        Iterator<Person> iterator = list.listIterator();
-
-        while (iterator.hasNext()) {
-            Person person = iterator.next();
-
-            if (fname.equals(person.getFname())) {
-                Address address = person.getAddress();
-                System.out.println("Choose field you want to add:");
-                System.out
-                        .println("1.Last Name\t2.Phone Number\t3.City\t4.Zip\t5. State");
-                switch (s.nextInt()) {
-                    case 1:
-                        System.out.println("Re-Correct your lastname");
-                        person.setLname(s.next());
-                        break;
-                    case 2:
-                        System.out.println("Re-Correct your Phone Number");
-                        person.setPhonenumber(s.nextLong());
-                        break;
-                    case 3:
-                        System.out.println("Re-Correct your City");
-                        address.setCity(s.next());
-                        break;
-                    case 4:
-                        System.out.println("Re-Correct your Zip");
-                        address.setZip(s.nextLong());
-                        break;
-                    case 5:
-                        System.out.println("Re-Correct your State");
-                        address.setState(s.next());
-                        break;
-                }
-            }
+        if (name_person.contains("things")){
+            Runtime.getRuntime().exec("cls");
         }
     }
-    public void delete() {
-        System.out.println("Enter your First name:");
-        String fname = s.next();
-
-        Iterator<Person> iterator = list.listIterator();
-        while (iterator.hasNext()) {
-            Person person = iterator.next();
-
-            if (fname.equals(person.getFname())) {
-                list.remove(person);
-            }
-        }
+        catch (final Exception e)
+    {
+        e.printStackTrace();
     }
 
-    public void sortByLastname() {
-        Collections.sort(list, Sort.compareLastName);
-        
+    public static void multiplePersonDetails(){
+        List<String> langs=new  ArrayList<>();
+
+        langs.add("Gauri");
+        langs.add("Pl no 97, Indraprastha nagar");
+        langs.add("Maharashtra");
+        langs.add("Nagpur");
+        langs.add("440022");
+        langs.add("9689710299");
+        langs.add("thegauriparhad@gmail.com");
+
+        for (String lang:langs){
+            System.out.println(+lang);
+        }
+        System.out.println()
+    }
+
+
+    public static void multipleDetailsAddressbook(){
+        Hashtable<String,String> my_dictionary=new Hashtable<String,String>();
+
+        //Using a  few  dictionary class methods
+        my_dictionary.put("01", "Vilas  deshmukh");
+        my_dictionary.put("02", "Trimurty nagar");
+        my_dictionary.put("03", "Delhi");
+        my_dictionary.put("04", "Gurgaon");
+        my_dictionary.put("05", "456743");
+        my_dictionary.put("06", "74843573397");
+        my_dictionary.put("07", "ghjauegnsb@gmail.com");
+
+
+        System.out.println("\nValue at key=01:" +my_dictionary.get("01"));
+        System.out.println("\nValue at key=02:" +my_dictionary.get("02"));
+        System.out.println("\nValue at key=03:" +my_dictionary.get("03"));
+        System.out.println("\nValue at key=04:" +my_dictionary.get("04"));
+        System.out.println("\nValue at key=05:" +my_dictionary.get("05"));
+        System.out.println("\nValue at key=06:" +my_dictionary.get("06"));
+        System.out.println("\nValue at key=07:" +my_dictionary.get("07"));
+
+        System.out.println("\nSize of my_dictionary:" +my_dictionary.size());
+
+
+    }
 }
-
