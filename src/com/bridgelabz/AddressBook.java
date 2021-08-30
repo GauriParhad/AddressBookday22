@@ -120,4 +120,6 @@ public class AddressBook  {
 
 
     }
+    public void sortByLastname() {
+        Collections.sort(list, Sort.compareLastName);
 }
